@@ -48,7 +48,7 @@ export class MusicDetailsComponent {
     //   this.movie.trailer);
   }
   ngOnInit() {
-    this.musicservice.getMusicById(this.id).subscribe((mu) => {
+    this.musicservice.getMusicById(this.id).subscribe((mu: any) => {
       this.music = mu;
       this.music.videosong = this.sanitizer.bypassSecurityTrustResourceUrl(
         this.music.videosong);

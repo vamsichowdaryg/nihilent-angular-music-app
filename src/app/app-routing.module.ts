@@ -8,11 +8,11 @@ import { MusicDetailsComponent } from './music-details/music-details.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: WelcomePageComponent },
-  { path: 'music', component: MusicAlbumCounterComponent },
-  { path: 'add ', component: AddMusicComponent },
-  { path: 'edit/:id', component: EditMusicComponent },
-  { path: 'music/:id', component: MusicDetailsComponent },
-  // { path: 'music', loadChildren: () => import('./music/music.module').then(m => m.MusicModule) },
+  // { path: 'music', component: MusicAlbumCounterComponent },
+  // { path: 'add ', component: AddMusicComponent },
+  // { path: 'edit/:id', component: EditMusicComponent },
+  // { path: 'music/:id', component: MusicDetailsComponent },
+  { path: 'music', loadChildren: () => import('./music/music.module').then(m => m.MusicModule) },
 ];
 
 @NgModule({

@@ -18,7 +18,7 @@ export class MusicService {
     }
   }
   constructor(private http: HttpClient) { }
-  musiclist: Array<Music> = []
+
   getMusicById(id: string) {
     return this.http.get<Music>(
       `https://650dc568a8b42265ec2cae6f.mockapi.io/music/${id}`
@@ -34,11 +34,12 @@ export class MusicService {
       `https://650dc568a8b42265ec2cae6f.mockapi.io/music`
     );
   }
-  createMusic(newMusic: Music) {
-    return this.http.post('https://650dc568a8b42265ec2cae6f.mockapi.io/music', newMusic)
+  addMusic(newMusic: Music) {
+    return this.http.post(`https://650dc568a8b42265ec2cae6f.mockapi.io/music`,
+      newMusic);
   }
 
-
+  musiclist: Array<Music> = []
   // constructor() { }
   getMusicList() {
     return this.musiclist;

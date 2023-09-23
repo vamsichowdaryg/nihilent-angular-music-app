@@ -16,5 +16,51 @@ h2 {
       transform: translateX(20px); 
     }
   }
-  
+  body{
+    display: grid;
+    place-content: center;
+    min-height: 100vh;        
+  }
+  .input {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      border: 1px solid #ccc;
+      margin: 10px;
+      max-width: 400px; 
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .mat-form-field label {
+      font-weight: bold;
+    }
+    
+    .mat-form-field input {
+      width: 100%;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 4px;
+    }
+    
+    button {
+      background-color: #007bff; 
+      color: #fff; 
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background-color 0.3s ease; 
+    }
+    
+    button:hover {
+      background-color: #0056b3;  
+    }
+   .add-movie-form{
+    display: flex;
+    flex-direction: column;
+   }
+    
   

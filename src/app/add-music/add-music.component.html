@@ -1,10 +1,10 @@
 <div class="input">
-  <link
+  <!-- <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-  />
+  /> -->
   <h2>Add Music🎼🎼</h2>
-  <form [formGroup]="musicForm" (ngSubmit)="addmusic()" class="add-music-form">
+  <form [formGroup]="musicForm" (ngSubmit)="addMusic()" class="add-music-form">
     <mat-form-field>
       <mat-label>SongName</mat-label>
       <input matInput formControlName="songname" placeholder="Ex. Awara" />
@@ -77,14 +77,14 @@
       <mat-label>SongRating</mat-label>
       <input matInput formControlName="songrating" placeholder="Ex. 7" />
     </mat-form-field>
-    <!-- <ngx-star-rating
+    <ngx-star-rating
       formControlName="songrating"
       [id]="'songrating'"
-    ></ngx-star-rating> -->
-    <mat-form-field>
+    ></ngx-star-rating>
+    <!-- <mat-form-field>
       <mat-label>src</mat-label>
       <input matInput formControlName="src" placeholder="Ex. http://img.com" />
-    </mat-form-field>
+    </mat-form-field> -->
     <mat-form-field>
       <mat-label>songlyrics</mat-label>
       <input

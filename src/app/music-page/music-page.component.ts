@@ -69,7 +69,7 @@ export class MusicPageComponent {
   }
   updatedMusic() {
     // this.router.navigate([`/edit/${this.music.id}`])
-    this.router.navigate(['/edit', this.music.id])
+    this.router.navigate(['/music/edit', this.music.id])
   }
   updateLike(count: number) {
     // console.log(this.movie)

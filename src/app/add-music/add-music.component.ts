@@ -86,11 +86,11 @@ export class AddMusicComponent {
   removeCastName(index: number) {
     this.cast.removeAt(index);
   }
-  addmusic() {
+  addMusic() {
     if (this.musicForm.valid) {
       const newMusic = this.musicForm.value;
       console.log(newMusic);
-      this.musicService.createMusic(newMusic as unknown as Music).subscribe(() => {
+      this.musicService.addMusic(newMusic as unknown as Music).subscribe(() => {
         this.Router.navigate(["/music"])
       })
 
