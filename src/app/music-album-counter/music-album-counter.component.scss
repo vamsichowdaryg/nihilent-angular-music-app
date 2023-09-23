@@ -1,0 +1,66 @@
+  .fullscreen-image {
+    width: 100%;
+    height: 100%;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: -1; 
+  }
+  
+  .fullscreen-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+  }
+  
+  mat-form-field {
+    font-size: 18px;
+  }
+  
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  app-music-page {
+    padding: 20px;
+    color: white; 
+  }
+  /* CSS for the form container */
+.example-form {
+  width: 100%;
+  max-width: 400px; /* Adjust the max width as needed */
+  margin: 0 auto; /* Center the form horizontally */
+  text-align: center;
+}
+
+/* CSS for the mat-form-field */
+.example-full-width {
+  width: 100%;
+}
+
+mat-label {
+  font-size: 16px; 
+  color: rgba(9, 9, 9, 0.7);
+}
+mat-icon {
+  color: rgba(4, 4, 4, 0.7); 
+}
+
+/* CSS for the input field */
+input.mat-input {
+  font-size: 16px; /* Adjust the font size as needed */
+  border: 2px solid rgba(4, 3, 3, 0.5); /* Transparent border */
+  border-radius: 4px; /* Add border radius as desired */
+  padding: 10px; /* Adjust padding as needed */
+  background-color: rgba(0, 0, 0, 0.2); /* Transparent background */
+  color: black; /* Text color */
+}
+
+
+
+
+
+
+  

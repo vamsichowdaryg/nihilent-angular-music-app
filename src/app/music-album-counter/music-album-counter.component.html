@@ -1,0 +1,27 @@
+<form [formGroup]="searchForm" class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Search Music</mat-label>
+    <mat-icon matPrefix>search</mat-icon>
+    <input
+      formControlName="search"
+      type="text"
+      matInput
+      placeholder="Ex. avara"
+    />
+  </mat-form-field>
+</form>
+<div class="fullscreen-image">
+  <img
+    src="https://cdn.pixabay.com/photo/2017/10/11/23/35/musical-background-2842924_1280.jpg"
+    alt=""
+  />
+</div>
+<div class="content">
+  <app-music-page
+    *ngFor="let nm of musiclist; let i = index"
+    [music]="nm"
+    [idx]="i"
+    (rmmovieidx)="removemusic($event)"
+  >
+  </app-music-page>
+</div>

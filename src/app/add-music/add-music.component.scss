@@ -1,0 +1,20 @@
+.add-music-form{
+    display: flex;
+    flex-direction: column;
+}
+h2 {
+    background-color: #FF5733;
+  color: #fff; 
+  padding: 10px;
+    animation: moveLeftRight 2s ease-in-out infinite alternate;
+  }
+  @keyframes moveLeftRight {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(20px); 
+    }
+  }
+  
+  

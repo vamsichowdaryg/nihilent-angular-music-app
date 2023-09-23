@@ -1,0 +1,83 @@
+
+.final {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    max-width: 300px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  .music-badge {
+    background: goldenrod;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    transform: translateX(50%);
+    font-weight: 500;
+  }
+  
+  .song.img img {
+    width: 100%;
+    height: auto;
+    
+
+  }
+  
+  .name {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .song-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  .info{
+    border: 0;
+    background-color: white;
+  }
+   button[aria-label="Expand-less"] {
+    background-color: transparent;
+    /* border: none; */
+    cursor: pointer; 
+  }
+  
+  .song-rating {
+    font-size: 18px;
+    margin-left: auto;
+  }
+  
+  p {
+    margin-top: 10px;
+  }
+
+.delicons {
+  display: flex;
+  flex-direction: row;
+  gap: 30px; 
+}
+
+.delicons button[aria-label="Delete Movie"] {
+  background-color: red; 
+  color: white; 
+  border-radius: 50%; 
+  padding: 0.75rem; 
+}
+
+.delicons button[aria-label="Edit Movie"] {
+  background-color: orange; 
+  color: white; 
+  border-radius: 50%; 
+  padding: 0.75rem;
+}
+
+  
+  

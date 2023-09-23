@@ -1,0 +1,28 @@
+// .image{
+//     width: 100%;
+//     // min-height: 100vh;
+//     // min-width: 100vw;
+// }
+/* Ensure the body and HTML elements take up the full viewport height */
+// body, html {
+//     height: 100%;
+//     margin: 0;
+//     padding: 0;
+//     overflow: hidden; 
+//   }
+  
+  .fullscreen-image {
+    width: 100%;
+    height: 100%;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: -1; 
+  }
+  
+  .fullscreen-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+  }
+  
