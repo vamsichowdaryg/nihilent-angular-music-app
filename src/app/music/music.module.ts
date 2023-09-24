@@ -30,6 +30,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxStarRatingModule } from 'ngx-star-rating';
+import { MatPaginatorModule } from '@angular/material/paginator';
 // import { NgxStarRatingModule } from 'ngx-star-rating';
 
 @NgModule({
@@ -61,7 +62,8 @@ import { NgxStarRatingModule } from 'ngx-star-rating';
     MatSlideToggleModule,
     NgxStarRatingModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    MatPaginatorModule
   ]
 })
 export class MusicModule { }

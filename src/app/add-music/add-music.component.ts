@@ -13,23 +13,26 @@ import { MusicService } from '../music.service';
 export class AddMusicComponent {
   separatorKeysCodes: number[] = [ENTER, COMMA];
   genres = [
-    { label: 'Action', value: 'ACTION' },
-    { label: 'Adventure', value: 'ADVENTURE' },
-    { label: 'Animation', value: 'ANIMATION' },
-    { label: 'Comedy', value: 'COMEDY' },
-    { label: 'Crime', value: 'CRIME' },
-    { label: 'Drama', value: 'DRAMA' },
-    { label: 'Fantasy', value: 'FANTASY' },
-    { label: 'Historical', value: 'HISTORICAL' },
-    { label: 'Horror', value: 'HORROR' },
-    { label: 'Musical', value: 'MUSICAL' },
-    { label: 'Mystery', value: 'MYSTERY' },
-    { label: 'Romance', value: 'ROMANCE' },
-    { label: 'Science Fiction', value: 'SCI_FI' },
-    { label: 'Thriller', value: 'THRILLER' },
-    { label: 'War', value: 'WAR' },
-    { label: 'Western', value: 'WESTERN' },
+    { label: 'Upbeat', value: 'UPBEAT' },
+    { label: 'Mellow', value: 'MELLOW' },
+    { label: 'Energetic', value: 'ENERGETIC' },
+    { label: 'Soothing', value: 'SOOTHING' },
+    { label: 'Melancholic', value: 'MELANCHOLIC' },
+    { label: 'Lively', value: 'LIVELY' },
+    { label: 'Calm', value: 'CALM' },
+    { label: 'Romantic', value: 'ROMANTIC' },
+    { label: 'Groovy', value: 'GROOVY' },
+    { label: 'Experimental', value: 'EXPERIMENTAL' },
+    { label: 'Uplifting', value: 'UPLIFTING' },
+    { label: 'Sensual', value: 'SENSUAL' },
+    { label: 'Jazzy', value: 'JAZZY' },
+    { label: 'Funky', value: 'FUNKY' },
+    { label: 'Soulful', value: 'SOULFUL' },
+    { label: 'Chill', value: 'CHILL' },
   ];
+
+  // You can use this 'genres' array to categorize music based on their melodic characteristics.
+
   languages = [
     { label: 'English', value: 'EN' },
     { label: 'Hindi', value: 'HI' },

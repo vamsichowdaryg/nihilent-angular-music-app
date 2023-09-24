@@ -3,6 +3,7 @@ import { Music } from '../app.component';
 import { FormBuilder } from '@angular/forms';
 import { Subscription, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { MusicService } from '../music.service';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-music-album-counter',
@@ -34,6 +35,7 @@ export class MusicAlbumCounterComponent {
         this.musiclist = muList;
       });
   }
+
   ngOnDestroy() {
     // this.getMovielist.unSubscribe();
   }

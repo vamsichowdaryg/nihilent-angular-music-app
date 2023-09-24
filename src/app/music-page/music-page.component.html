@@ -1,5 +1,5 @@
 <div class="final">
-  <div class="song img">
+  <div class="song img zoom-on-hover">
     <img src="{{ music.src }}" alt="" />
   </div>
   <em *ngIf="music.MostWatched" class="music-badge">Mostwatched</em>
@@ -16,7 +16,7 @@
     <span class="song-rating">⭐{{ music.songrating }}</span>
   </div>
 
-  <p *ngIf="show">{{ music.songlyrics }}</p>
+  <!-- <p *ngIf="show">{{ music.songlyrics }}</p> -->
   <div class="delicons">
     <button
       (click)="deleteMusicById()"

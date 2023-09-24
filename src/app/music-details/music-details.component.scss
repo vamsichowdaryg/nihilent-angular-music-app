@@ -4,7 +4,9 @@
   border-radius: 16px;
   overflow: hidden;
 } */
-
+.movie-rating{
+    width: 100%;
+}
 .movie-detail-container p {
     margin: 0;
   }
@@ -48,8 +50,9 @@
   .movie-extra-detail,
   .movie-cast-container {
     display: flex;
+    width: 100%;
     align-items: center;
-    gap: 2px;
+    gap: 20px;
   }
   
   .movie-extra-detail {

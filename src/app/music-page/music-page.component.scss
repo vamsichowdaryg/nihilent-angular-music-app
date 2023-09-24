@@ -78,6 +78,12 @@
   border-radius: 50%; 
   padding: 0.75rem;
 }
+.zoom-on-hover{
+    transition: transform 0.3s;
 
+}
+.zoom-on-hover:hover{
+    transform:scale(1.13);
+}
   
   
