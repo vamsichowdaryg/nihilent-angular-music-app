@@ -1,23 +1,69 @@
+// .new {
+//     background-color: #333;
+//     padding: 1rem;
+//     color: white;
+//   }
+//   .logo{
+//     font-size: larger;
+//     font-weight: 5rem;
+//   }
+//   nav ul {
+//     padding: 0;
+//     margin: 0;
+//   }
+  
+//   nav ul li {
+//     display: inline;
+//     margin-right: 20px; 
+//     justify-content: space-between;
+//   }
+  
+//   nav ul li a {
+//     color: #fff; 
+//   }
+  
+//   nav ul li a:hover {
+//     color: #ff9900; 
+//   }
+/* Default styles for larger screens */
 .new {
-    background-color: #333;
-    padding: 1rem;
-  }
-  
-  nav ul {
-    padding: 0;
-    margin: 0;
-  }
-  
-  nav ul li {
-    display: inline;
-    margin-right: 20px; 
+    display: flex;
     justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 0 20px;
   }
   
-  nav ul li a {
-    color: #fff; 
+  .menu-button {
+    display: none; /* Hide the menu button by default */
   }
   
-  nav ul li a:hover {
-    color: #ff9900; 
+  .new .logo {
+    font-size: 1.5rem;
+    margin-left: 10px;
   }
+  
+  /* ... (other styles) */
+  
+  /* Responsive styles for smaller screens */
+  @media screen and (max-width: 768px) {
+    .menu-button {
+      display: block; /* Show the menu button for smaller screens */
+    }
+  
+    .menu {
+      display: none; /* Hide the menu by default */
+    }
+  
+    /* Adjust styles for the menu when displayed */
+    .menu.open {
+      display: block;
+      position: absolute;
+      top: 56px; /* Adjust the top position as needed */
+      right: 20px;
+      background-color: #444;
+      color: white;
+    }
+  }
+  

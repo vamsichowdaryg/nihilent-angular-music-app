@@ -31,6 +31,17 @@ import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MusicDirective } from '../music.directive';
+import {
+  MatDialog,
+  MAT_DIALOG_DATA,
+  MatDialogRef,
+  MatDialogModule,
+} from '@angular/material/dialog';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
+import { DatePipe } from '@angular/common';
 // import { NgxStarRatingModule } from 'ngx-star-rating';
 
 @NgModule({
@@ -41,7 +52,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     LikeDislikeCounterComponent,
     MusicAlbumCounterComponent,
     MusicDetailsComponent,
-    MusicPageComponent
+    MusicPageComponent,
+    MusicDirective,
   ],
   imports: [
     CommonModule,
@@ -63,7 +75,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     NgxStarRatingModule,
     MatRadioModule,
     MatSelectModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    DatePipe,
+    MatToolbarModule
+
   ]
 })
 export class MusicModule { }

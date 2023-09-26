@@ -6,30 +6,28 @@ import { MusicService } from '../music.service';
 @Component({
   selector: 'app-music-details',
   templateUrl: './music-details.component.html',
-  styleUrls: ['./music-details.component.scss']
+  styleUrls: ['./music-details.component.scss'],
+
 })
 export class MusicDetailsComponent {
   genres = [
-    { label: 'Upbeat', value: 'UPBEAT' },
-    { label: 'Mellow', value: 'MELLOW' },
-    { label: 'Energetic', value: 'ENERGETIC' },
-    { label: 'Soothing', value: 'SOOTHING' },
-    { label: 'Melancholic', value: 'MELANCHOLIC' },
-    { label: 'Lively', value: 'LIVELY' },
-    { label: 'Calm', value: 'CALM' },
-    { label: 'Romantic', value: 'ROMANTIC' },
-    { label: 'Groovy', value: 'GROOVY' },
-    { label: 'Experimental', value: 'EXPERIMENTAL' },
-    { label: 'Uplifting', value: 'UPLIFTING' },
-    { label: 'Sensual', value: 'SENSUAL' },
-    { label: 'Jazzy', value: 'JAZZY' },
-    { label: 'Funky', value: 'FUNKY' },
-    { label: 'Soulful', value: 'SOULFUL' },
-    { label: 'Chill', value: 'CHILL' },
+    { label: 'Action', value: 'ACTION' },
+    { label: 'Adventure', value: 'ADVENTURE' },
+    { label: 'Animation', value: 'ANIMATION' },
+    { label: 'Comedy', value: 'COMEDY' },
+    { label: 'Crime', value: 'CRIME' },
+    { label: 'Drama', value: 'DRAMA' },
+    { label: 'Fantasy', value: 'FANTASY' },
+    { label: 'Historical', value: 'HISTORICAL' },
+    { label: 'Horror', value: 'HORROR' },
+    { label: 'Musical', value: 'MUSICAL' },
+    { label: 'Mystery', value: 'MYSTERY' },
+    { label: 'Romance', value: 'ROMANCE' },
+    { label: 'Science Fiction', value: 'SCI_FI' },
+    { label: 'Thriller', value: 'THRILLER' },
+    { label: 'War', value: 'WAR' },
+    { label: 'Western', value: 'WESTERN' },
   ];
-
-  // You can use this 'genres' array to categorize music based on their melodic characteristics.
-
   languages = [
     { label: 'English', value: 'EN' },
     { label: 'Hindi', value: 'HI' },
@@ -51,7 +49,7 @@ export class MusicDetailsComponent {
     //   this.movie.trailer);
   }
   ngOnInit() {
-    this.musicservice.getMusicById(this.id).subscribe((mu: any) => {
+    this.musicservice.getMusicById(this.id).subscribe((mu) => {
       this.music = mu;
       this.music.videosong = this.sanitizer.bypassSecurityTrustResourceUrl(
         this.music.videosong);

@@ -1,31 +1,42 @@
 
 .final {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    border: 1px solid #ccc;
-    margin: 10px;
-    max-width: 300px; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    border-radius: 30px;
+    width: 22.5rem;
+    overflow: hidden;
     position: relative;
+    // display: flex;
+    // flex-direction: column;
+    align-items: center;
+    // padding: 20px;
+    border: 1px solid #ccc;
+    background-color: white;
+    // border-radius: 5%;
+    // margin: 10px;
+    // overflow: hidden;
+    // max-width: 300px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    // position: relative;
   }
   .music-badge {
     background: goldenrod;
-    color: white;
+    color: rgb(12, 11, 11);
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     position: absolute;
     top: 10px;
     right: 0px;
-    transform: translateX(50%);
+    // transform: translateX(50%);
     font-weight: 500;
   }
   
   .song.img img {
     width: 100%;
-    height: auto;
-    
+    height: 300px;
+    object-fit: cover;
+    object-position: top;
+
+    // border-radius: 5%;
 
   }
   
@@ -33,6 +44,8 @@
     display: flex;
     align-items: center;
     margin-top: 10px;
+    color: black;
+    padding: 10px;
   }
   
   .song-name {
@@ -58,23 +71,27 @@
   p {
     margin-top: 10px;
   }
-
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
 .delicons {
   display: flex;
-  flex-direction: row;
-  gap: 30px; 
+//   gap: 30px; 
 }
 
 .delicons button[aria-label="Delete Movie"] {
   background-color: red; 
-  color: white; 
+  color: rgb(10, 8, 8); 
   border-radius: 50%; 
-  padding: 0.75rem; 
+//   padding: 0.75rem; 
 }
 
 .delicons button[aria-label="Edit Movie"] {
   background-color: orange; 
-  color: white; 
+  color: rgb(11, 9, 9); 
   border-radius: 50%; 
   padding: 0.75rem;
 }
@@ -83,7 +100,7 @@
 
 }
 .zoom-on-hover:hover{
-    transform:scale(1.13);
+    transform:scale(1.12);
 }
   
   

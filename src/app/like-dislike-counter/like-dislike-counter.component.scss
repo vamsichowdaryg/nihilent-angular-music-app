@@ -1,0 +1,21 @@
+
+.newone {
+    display: flex;
+    
+    gap: 20px; 
+  }
+  
+  .liked {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    // outline: none; 
+  }
+  .disliked {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    // outline: none; 
+  }

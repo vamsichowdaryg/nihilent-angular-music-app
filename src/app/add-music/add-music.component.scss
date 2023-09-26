@@ -2,20 +2,7 @@
     display: flex;
     flex-direction: column;
 }
-h2 {
-    background-color: #FF5733;
-  color: #fff; 
-  padding: 10px;
-    animation: moveLeftRight 2s ease-in-out infinite alternate;
-  }
-  @keyframes moveLeftRight {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(20px); 
-    }
-  }
+
   body{
     display: grid;
     place-content: center;
@@ -28,40 +15,90 @@ h2 {
       padding: 20px;
       border: 1px solid #ccc;
       margin: 10px;
-      margin-left: 33rem;
+      margin-left: 50rem;
       max-width: 400px; 
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-    
-    .mat-form-field label {
-      font-weight: bold;
+h2 {
+    background-color: black;
+  color: #fff; 
+  padding: 10px;
+    animation: moveLeftRight 2s ease-in-out infinite alternate;
+  }
+  @keyframes moveLeftRight {
+    0% {
+      transform: translateX(0);
     }
-    
-    .mat-form-field input {
-      width: 100%;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      padding: 10px;
-      border-radius: 4px;
+    100% {
+      transform: translateX(20px); 
     }
-    
-    button {
-      background-color: #007bff; 
-      color: #fff; 
-      padding: 10px 20px;
-      border: none;
-      cursor: pointer;
-      border-radius: 4px;
-      font-weight: bold;
-      transition: background-color 0.3s ease; 
-    }
-    
-    button:hover {
-      background-color: #0056b3;  
-    }
-   .add-movie-form{
-    display: flex;
-    flex-direction: column;
-   }
-    
+  }
+.fullscreen-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: brightness(60%); 
+  }
+  .fullscreen-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+  }
+  
+  .input {
+    background-color: rgba(255, 255, 255, 0); 
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    margin: 20px auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); 
+  } 
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .addmusicbtn {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .addmusicbtn:hover {
+    background-color: #0056b3; 
+  }
+  
+  .mat-error {
+    color: #f44336; 
+  }
+  
+  .mat-datepicker-content {
+    background-color: white;
+  }
+  
+  mat-radio-button {
+    margin-right: 20px;
+    color: white;
+    background-color: white;
+  }
+  .censor{
+    background-color: white;
+    margin-bottom: 20px;
+  }
+  
+  mat-select {
+    width: 100%;
+  }
+  mat-slide-toggle{
+    padding: 5px;
+    background-color: white;
+    margin-bottom: 20px;
+  }
+  .example-chip-list {
+    width: 100%;
+  }
+  
   

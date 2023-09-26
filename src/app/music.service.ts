@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Music } from './app.component';
 import { HttpClient } from '@angular/common/http';
-
+const API = `https://650dc568a8b42265ec2cae6f.mockapi.io/music`;
 @Injectable({
   providedIn: 'root'
 })
@@ -38,7 +38,14 @@ export class MusicService {
     return this.http.post(`https://650dc568a8b42265ec2cae6f.mockapi.io/music`,
       newMusic);
   }
+  getMusicListPagination(page: number, limit: number, searchTerm?: string) {
+    let url = `${API}?limit=${limit}&page=${page}`;
+    if (searchTerm) {
+      url += `&search=${searchTerm}`;
+    }
 
+    return this.http.get<Music[]>(url);
+  }
   musiclist: Array<Music> = []
   // constructor() { }
   getMusicList() {

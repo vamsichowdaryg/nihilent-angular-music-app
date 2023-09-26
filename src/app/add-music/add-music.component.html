@@ -1,8 +1,20 @@
+<div class="fullscreen-image">
+  <!-- <img
+    src="https://img.freepik.com/premium-photo/ai-generated-ai-generative-draw-paint-sketch-watercolor-muisc-guitar-with-color-splash_95211-30567.jpg"
+    alt=""
+  /> -->
+  <img
+    src="https://img.freepik.com/premium-photo/music-pattern-background-ai-generated-image_20029-2129.jpg?w=2000"
+    alt=""
+  />
+</div>
+
 <div class="input">
-  <!-- <link
+  <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-  /> -->
+  />
+
   <h2>Add Music🎼🎼</h2>
   <form [formGroup]="musicForm" (ngSubmit)="addMusic()" class="add-music-form">
     <mat-form-field>
@@ -33,11 +45,12 @@
     <mat-radio-group
       formControlName="censorRating"
       aria-label="Select an Censor rating"
-    >
-      <mat-radio-button value="U">U</mat-radio-button>
-      <mat-radio-button value="U/A">U/A</mat-radio-button>
-      <mat-radio-button value="A">A</mat-radio-button>
-      <mat-radio-button value="R">R</mat-radio-button>
+      ><div class="censor">
+        <mat-radio-button value="U">U</mat-radio-button>
+        <mat-radio-button value="U/A">U/A</mat-radio-button>
+        <mat-radio-button value="A">A</mat-radio-button>
+        <mat-radio-button value="R">R</mat-radio-button>
+      </div>
     </mat-radio-group>
     <mat-form-field>
       <mat-label>Genres</mat-label>
@@ -77,10 +90,10 @@
       <mat-label>SongRating</mat-label>
       <input matInput formControlName="songrating" placeholder="Ex. 7" />
     </mat-form-field>
-    <ngx-star-rating
+    <!-- <ngx-star-rating
       formControlName="songrating"
       [id]="'songrating'"
-    ></ngx-star-rating>
+    ></ngx-star-rating> -->
     <!-- <mat-form-field>
       <mat-label>src</mat-label>
       <input matInput formControlName="src" placeholder="Ex. http://img.com" />

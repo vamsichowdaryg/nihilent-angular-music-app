@@ -6,10 +6,6 @@
 
   <div class="name">
     <span class="song-name">{{ music.songname }}</span>
-    <em>{{ music.releaseYear | date : "dd MMM YYYY" }}</em>
-    <button (click)="toggle()" mat-icon-button aria-label="Expand-less">
-      <mat-icon>expand_less</mat-icon>
-    </button>
     <button class="info" (click)="gotoMusicDetail()">
       <mat-icon>info</mat-icon>
     </button>
@@ -17,30 +13,32 @@
   </div>
 
   <!-- <p *ngIf="show">{{ music.songlyrics }}</p> -->
-  <div class="delicons">
-    <button
-      (click)="deleteMusicById()"
-      mat-icon-button
-      color="accent"
-      aria-label="Delete Music"
+  <div class="footer">
+    <app-like-dislike-counter
+      [count]="music.like"
+      [count1]="music.dislike"
+      (LikeCount)="updateLike($event)"
+      (DislikeCount)="updateDislike($event)"
     >
-      <mat-icon>delete</mat-icon>
-    </button>
+    </app-like-dislike-counter>
+    <div class="delicons">
+      <button
+        (click)="deleteMusicById()"
+        mat-icon-button
+        color="accent"
+        aria-label="Delete Music"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
 
-    <button
-      (click)="updatedMusic()"
-      mat-icon-button
-      color="warn"
-      aria-label="Edit Music"
-    >
-      <mat-icon>edit</mat-icon>
-    </button>
+      <button
+        (click)="updatedMusic()"
+        mat-icon-button
+        color="warn"
+        aria-label="Edit Music"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
   </div>
-  <app-like-dislike-counter
-    [count]="music.like"
-    [count1]="music.dislike"
-    (LikeCount)="updateLike($event)"
-    (DislikeCount)="updateDislike($event)"
-  >
-  </app-like-dislike-counter>
 </div>

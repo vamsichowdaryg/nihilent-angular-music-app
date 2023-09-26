@@ -13,6 +13,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 export class MusicAlbumCounterComponent {
   musiclist: Array<Music> = [];
   getMusiclist: Subscription | any;
+  isLoading: boolean = false;
+  searchTerm!: string;
 
   searchForm = this.fb.group({
     search: '',
@@ -26,7 +28,7 @@ export class MusicAlbumCounterComponent {
       .subscribe((mulist) => {
         this.musiclist = mulist;
       })
-    this.loadMusicData();
+    // this.loadMusicData();
   }
   loadMusicData() {
     this.getMusiclist = this.musicService
@@ -35,7 +37,17 @@ export class MusicAlbumCounterComponent {
         this.musiclist = muList;
       });
   }
+  onNewItems(newItems: Music[]): void {
+    // if (newItems.length === 0) {
+    //   this.musiclist = []; // Reset the list if an empty array is received
+    // } else {
+    this.musiclist = [...this.musiclist, ...newItems];
+    // }
+  }
 
+  onLoadingChange(isLoading: boolean): void {
+    this.isLoading = isLoading;
+  }
   ngOnDestroy() {
     // this.getMovielist.unSubscribe();
   }

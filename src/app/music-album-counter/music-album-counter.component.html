@@ -16,7 +16,16 @@
     alt=""
   />
 </div>
-<div class="content">
+<div
+  class="content"
+  appMusic
+  apiEndpoint
+  [pageSize]="3"
+  [searchTerm]="searchTerm"
+  (items)="onNewItems($event)"
+  (loading)="onLoadingChange($event)"
+  class="movie-list-container"
+>
   <app-music-page
     *ngFor="let nm of musiclist; let i = index"
     [music]="nm"
@@ -24,4 +33,7 @@
     (rmmovieidx)="removemusic($event)"
   >
   </app-music-page>
+  <div class="spinner-container" *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+  </div>
 </div>

@@ -1,12 +1,10 @@
-/* .movie-container {
+ .movie-container {
   width: 100%;
   background-color: red;
   border-radius: 16px;
   overflow: hidden;
-} */
-.movie-rating{
-    width: 100%;
-}
+} 
+
 .movie-detail-container p {
     margin: 0;
   }
@@ -50,9 +48,8 @@
   .movie-extra-detail,
   .movie-cast-container {
     display: flex;
-    width: 100%;
     align-items: center;
-    gap: 20px;
+    gap: 2px;
   }
   
   .movie-extra-detail {
@@ -68,6 +65,7 @@
   }
   
   .movie-name {
+    display: inline;
     font-weight: bold;
     font-size: 1.5rem;
   }
@@ -86,10 +84,9 @@
     object-fit: cover; 
   }
   .videosong{
-    // height: auto;
+    height: auto;
     height: 50%;
     width: 50%;
     margin-top: 1rem;
     margin-left: 22.5rem;
   }
-    

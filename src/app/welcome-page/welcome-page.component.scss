@@ -10,7 +10,13 @@
 //     padding: 0;
 //     overflow: hidden; 
 //   }
-  
+  .click{
+    transform: translateY(300px) translateX(600px);
+  }
+  .button{
+    background-color: black;
+    color: white;
+  }
   .fullscreen-image {
     width: 100%;
     height: 100%;
