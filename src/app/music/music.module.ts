@@ -29,7 +29,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgxStarRatingModule } from 'ngx-star-rating';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MusicDirective } from '../music.directive';
 import {
@@ -43,7 +42,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { DatePipe } from '@angular/common';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
-// import { NgxStarRatingModule } from 'ngx-star-rating';
 import { MatDialogContent } from '@angular/material/dialog';
 
 @NgModule({
@@ -75,7 +73,6 @@ import { MatDialogContent } from '@angular/material/dialog';
     MatNativeDateModule,
     MatFormFieldModule,
     MatSlideToggleModule,
-    NgxStarRatingModule,
     MatRadioModule,
     MatSelectModule,
     MatPaginatorModule,
