@@ -94,7 +94,7 @@ export class AddMusicComponent {
       const newMusic = this.musicForm.value;
       console.log(newMusic);
       this.musicService.addMusic(newMusic as unknown as Music).subscribe(() => {
-        this.snackBar.open('Place added successfully', 'Close', {
+        this.snackBar.open('Song added successfully', 'Close', {
           duration: 3000,
           panelClass: ['snackbar-success'],
           verticalPosition: 'top',
