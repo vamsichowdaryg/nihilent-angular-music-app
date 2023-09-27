@@ -1,69 +1,108 @@
+// // .new {
+// //     background-color: #333;
+// //     padding: 1rem;
+// //     color: white;
+// //   }
+  .logo{
+    font-size: larger;
+    font-weight: 5rem;
+  }
+// //   nav ul {
+// //     padding: 0;
+// //     margin: 0;
+// //   }
+  
+// //   nav ul li {
+// //     display: inline;
+// //     margin-right: 20px; 
+// //     justify-content: space-between;
+// //   }
+  
+// //   nav ul li a {
+// //     color: #fff; 
+// //   }
+  
+// //   nav ul li a:hover {
+// //     color: #ff9900; 
+// //   }
+// /* Default styles for larger screens */
 // .new {
+//     display: flex;
+//     // justify-content: space-between;
+//     align-items: center;
 //     background-color: #333;
-//     padding: 1rem;
 //     color: white;
+//     padding: 0 20px;
 //   }
-//   .logo{
-//     font-size: larger;
-//     font-weight: 5rem;
-//   }
-//   nav ul {
-//     padding: 0;
-//     margin: 0;
-//   }
-  
-//   nav ul li {
-//     display: inline;
-//     margin-right: 20px; 
-//     justify-content: space-between;
+//   .new1 {
+//     display: flex;
+//     // justify-content: space-between;
+//     align-items: center;
+//     background-color: #333;
+//     color: white;
+//     padding: 0 20px;
 //   }
   
-//   nav ul li a {
-//     color: #fff; 
+//   .menu-button {
+//     display: none; /* Hide the menu button by default */
 //   }
   
-//   nav ul li a:hover {
-//     color: #ff9900; 
+//   .new .logo {
+//     font-size: 1.5rem;
+//     margin-left: 10px;
 //   }
-/* Default styles for larger screens */
-.new {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
+  
+//   /* ... (other styles) */
+  
+//   /* Responsive styles for smaller screens */
+//   @media screen and (max-width: 768px) {
+//     .menu-button {
+//       display: block; /* Show the menu button for smaller screens */
+//     }
+  
+//     .menu {
+//       display: none; /* Hide the menu by default */
+//     }
+  
+//     /* Adjust styles for the menu when displayed */
+//     .menu.open {
+//       display: block;
+//       position: absolute;
+//       top: 56px; /* Adjust the top position as needed */
+//       right: 20px;
+//       background-color: #444;
+//       color: white;
+//     }
+//   }
+
+.lnavbar {
+    display: none;
+    background-color: black;
     color: white;
-    padding: 0 20px;
+    // align-items: center;
+    // justify-content: space-between;
   }
-  
-  .menu-button {
-    display: none; /* Hide the menu button by default */
-  }
-  
-  .new .logo {
+
+.navbar{
+    background-color: black;
+    display: block;
+    color: white;
+}
+.logo {
+    font-family: Arial, sans-serif;
     font-size: 1.5rem;
-    margin-left: 10px;
-  }
-  
-  /* ... (other styles) */
-  
-  /* Responsive styles for smaller screens */
-  @media screen and (max-width: 768px) {
-    .menu-button {
-      display: block; /* Show the menu button for smaller screens */
+    font-weight: bold;
+    color: white !important; 
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+@media (min-width: 768px) {
+    .lnavbar {
+      display: flex;
+      justify-content: space-between;
     }
-  
-    .menu {
-      display: none; /* Hide the menu by default */
-    }
-  
-    /* Adjust styles for the menu when displayed */
-    .menu.open {
-      display: block;
-      position: absolute;
-      top: 56px; /* Adjust the top position as needed */
-      right: 20px;
-      background-color: #444;
-      color: white;
+    .navbar {
+      display: none;
     }
   }
-  

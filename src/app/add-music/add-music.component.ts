@@ -5,6 +5,7 @@ import { FormArray, FormBuilder, Validators } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MusicService } from '../music.service';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-add-music',
   templateUrl: './add-music.component.html',
@@ -31,7 +32,6 @@ export class AddMusicComponent {
     { label: 'Chill', value: 'CHILL' },
   ];
 
-  // You can use this 'genres' array to categorize music based on their melodic characteristics.
 
   languages = [
     { label: 'English', value: 'EN' },
@@ -64,7 +64,7 @@ export class AddMusicComponent {
 
 
   musiclist;
-  constructor(private musicService: MusicService, private Router: Router, private fb: FormBuilder) {
+  constructor(private snackBar: MatSnackBar, private musicService: MusicService, private Router: Router, private fb: FormBuilder) {
     this.musiclist = musicService.getMusicList();
   }
 
@@ -94,6 +94,12 @@ export class AddMusicComponent {
       const newMusic = this.musicForm.value;
       console.log(newMusic);
       this.musicService.addMusic(newMusic as unknown as Music).subscribe(() => {
+        this.snackBar.open('Place added successfully', 'Close', {
+          duration: 3000,
+          panelClass: ['snackbar-success'],
+          verticalPosition: 'top',
+          horizontalPosition: 'end',
+        });
         this.Router.navigate(["/music"])
       })
 

@@ -1,39 +1,55 @@
-<mat-toolbar class="new">
-  <button
-    mat-icon-button
-    [matMenuTriggerFor]="menu"
-    aria-label="Example icon-button with a menu"
-  >
-    <mat-icon>menu</mat-icon>
-  </button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>
-      <mat-icon>home</mat-icon>
-      <button mat-button routerLink="/home">Home</button>
-    </button>
-    <button mat-menu-item>
+<!-- <div class="container">
+  <app-travel> </app-travel>
+</div> -->
+<header>
+  <mat-toolbar class="lnavbar">
+    <!-- <nav class="lnavbar"> -->
+    <div class="navbuttons">
+      <button mat-button routerLink="/"><mat-icon>home</mat-icon> Home</button>
+      <button mat-button routerLink="/music">
+        <mat-icon>library_music </mat-icon> Music
+      </button>
+      <button mat-button routerLink="/music/add">
+        <mat-icon>add</mat-icon> Add Music
+      </button>
+    </div>
+    <div>
+      <button mat-button routerLink="/" class="logo">Ganaa</button>
       <mat-icon>library_music</mat-icon>
-      <button mat-button routerLink="/music">Music</button>
+    </div>
+    <!-- </nav> -->
+  </mat-toolbar>
+  <mat-toolbar class="navbar">
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      aria-label="Example icon-button with a menu"
+    >
+      <mat-icon>menu</mat-icon>
     </button>
-    <button mat-menu-item>
-      <mat-icon>add</mat-icon>
-      <button mat-button routerLink="/music/add">Add Music</button>
-    </button>
-  </mat-menu>
-  <button mat-button routerLink="/" class="logo">Gaana</button>
-  <mat-icon>music_video</mat-icon>
-</mat-toolbar>
-<div class="new">
-  <nav>
-    <ul>
-      <li><a routerLink="/home">Home </a></li>
-      <li><a routerLink="/music">Music</a></li>
-      <li><a routerLink="/music/add">Add Music</a></li>
-    </ul>
-  </nav>
-</div>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>home</mat-icon>
+        <button mat-button routerLink="/">Home</button>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>library_music</mat-icon>
+        <button mat-button routerLink="/music">Music</button>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>add_location</mat-icon>
+        <button mat-button routerLink="/music/add">Add Music</button>
+      </button>
+    </mat-menu>
+    <button mat-button routerLink="/" class="logo">Gaana</button>
+  </mat-toolbar>
+</header>
+<section class="router-container">
+  <router-outlet></router-outlet>
+</section>
+
 <!-- <app-music-page></app-music-page> -->
 <!-- <app-music-album-counter></app-music-album-counter> -->
 
-<router-outlet></router-outlet>
-<footer></footer>
+<!-- <router-outlet></router-outlet>
+<footer></footer> -->

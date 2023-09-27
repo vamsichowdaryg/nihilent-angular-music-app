@@ -40,9 +40,11 @@ import {
 } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { DatePipe } from '@angular/common';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 // import { NgxStarRatingModule } from 'ngx-star-rating';
+import { MatDialogContent } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,7 @@ import { DatePipe } from '@angular/common';
     MusicDetailsComponent,
     MusicPageComponent,
     MusicDirective,
+    ConfirmDialogComponent
   ],
   imports: [
     CommonModule,
@@ -78,7 +81,9 @@ import { DatePipe } from '@angular/common';
     MatPaginatorModule,
     MatProgressSpinnerModule,
     DatePipe,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDialogModule,
+    MatSnackBarModule
 
   ]
 })

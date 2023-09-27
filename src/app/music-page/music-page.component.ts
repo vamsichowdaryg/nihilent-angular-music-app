@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { MusicService } from '../music.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject, debounceTime, switchMap } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-music-page',
@@ -34,7 +36,7 @@ export class MusicPageComponent {
   likeSubject = new Subject<number>()
   dislikeSubject = new Subject<number>()
   movielist: Object | undefined;
-  constructor(private http: HttpClient, private router: Router, private musicService: MusicService, private fb: FormBuilder) {
+  constructor(private http: HttpClient, private dialog: MatDialog, private router: Router, private musicService: MusicService, private fb: FormBuilder) {
     this.likeSubject.pipe(debounceTime(1000), switchMap((count) => {
       this.music = { ...this.music, like: count };
       return this.musicService.updateMusic(this.music)
@@ -54,16 +56,17 @@ export class MusicPageComponent {
     songlyrics: '',
     videosong: ['', [Validators.required, Validators.minLength(5), Validators.pattern("^http.*")]],
   })
-  deleteMusicById() {
-    this.musicService.deleteMusicById(this.music.id).subscribe(() => {
-      this.rmmovieidx.emit(this.idx);
-    })
+  // deleteMusicById() {
+  //   this.musicService.deleteMusicById(this.music.id).subscribe(() => {
+  //     this.rmmovieidx.emit(this.idx);
+  //   })
 
-  }
+  // }
   show = true;
   toggle() {
     this.show = !this.show
   }
+
   gotoMusicDetail() {
     this.router.navigate([`/music/${this.music.id}`]);
   }
@@ -82,4 +85,29 @@ export class MusicPageComponent {
     // this.musicService.updateMovie(this.movie).subscribe()
     this.dislikeSubject.next(count1)
   }
+  openConfirmDialog() {
+    return this.dialog.open(ConfirmDialogComponent, {
+      maxWidth: '450px',
+      data: { message: 'Are you sure you want to delete this movie?' },
+    });
+  }
+
+  // Delete -> Refresh data
+  deleteMusic() {
+    this.openConfirmDialog()
+      .afterClosed()
+      .subscribe((confirmed: boolean) => {
+        if (confirmed) {
+          this.performDelete();
+        }
+      });
+  }
+
+  performDelete() {
+    this.musicService.deleteMusicById(this.music.id).subscribe(() => {
+      console.log('Movie deleted successfully');
+      this.rmmovieidx.emit();
+    });
+  }
+
 }
