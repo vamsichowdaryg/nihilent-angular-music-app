@@ -4,10 +4,45 @@
     <mat-icon matPrefix>search</mat-icon>
     <input
       formControlName="search"
-      type="text"
+      type="search"
       matInput
       placeholder="Ex. avara"
+      list="search-list"
     />
+    <datalist id="search-list" *ngIf="searchForm.get('search')?.value !== ''">
+      <option
+        class="option"
+        *ngFor="let music of musiclist"
+        [value]="music.songname"
+      >
+        {{ music.songname }}
+      </option>
+    </datalist>
+    <!-- <button
+      matSuffix
+      mat-icon-button
+      
+      "
+      (click)="clearSearch()"
+    >
+      <mat-icon>close</mat-icon>
+    </button> -->
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Sort By</mat-label>
+    <mat-select (selectionChange)="onSortChange($event)">
+      <mat-option value="name">Name</mat-option>
+      <mat-option value="songrating">Rating</mat-option>
+      <mat-option value="releaseYear">Release Year</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Order</mat-label>
+    <mat-select (selectionChange)="onOrderChange($event)">
+      <mat-option value="asc">Ascending</mat-option>
+      <mat-option value="desc">Descending</mat-option>
+    </mat-select>
   </mat-form-field>
 </form>
 <div class="fullscreen-image">
@@ -15,6 +50,14 @@
     src="https://cdn.pixabay.com/photo/2017/10/11/23/35/musical-background-2842924_1280.jpg"
     alt=""
   />
+</div>
+<div>
+  <button (click)="toggle()" mat-icon-button aria-label="Expand-less">
+    <mat-icon *ngIf="show; else moreIcon">expand_less</mat-icon>
+    <ng-template #moreIcon>
+      <mat-icon>expand_more</mat-icon>
+    </ng-template>
+  </button>
 </div>
 <div
   class="content"

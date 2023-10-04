@@ -16,6 +16,7 @@
     (ngSubmit)="updatedMusic()"
     class="edit-movie-form"
   >
+    <h2>General-Info</h2>
     <mat-form-field>
       <mat-label>SongName</mat-label>
       <input matInput formControlName="songname" placeholder="Ex. Vikram" />
@@ -40,6 +41,29 @@
       ></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
+    <h2>Media</h2>
+    <mat-form-field>
+      <mat-label>src</mat-label>
+      <input matInput formControlName="src" placeholder="Ex. http://img.com" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>VideoSong</mat-label>
+      <input
+        matInput
+        formControlName="videosong"
+        placeholder="Ex. Cool movie"
+      />
+      <mat-error *ngIf="videosong?.touched && videosong?.hasError('required')">
+        Why not fill this field 😉?
+      </mat-error>
+      <mat-error *ngIf="videosong?.touched && videosong?.hasError('minlength')">
+        Please provide valid url 😁
+      </mat-error>
+      <mat-error *ngIf="videosong?.touched && videosong?.hasError('pattern')">
+        Please provide valid url 😁
+      </mat-error>
+    </mat-form-field>
+    <h2>Details</h2>
     <h3>Censor Rating</h3>
     <mat-radio-group
       formControlName="censorRating"
@@ -91,10 +115,7 @@
       <mat-label>Rating</mat-label>
       <input matInput formControlName="songrating" placeholder="Ex. 7" />
     </mat-form-field>
-    <mat-form-field>
-      <mat-label>src</mat-label>
-      <input matInput formControlName="src" placeholder="Ex. http://img.com" />
-    </mat-form-field>
+
     <mat-form-field>
       <mat-label>content</mat-label>
       <input
@@ -103,23 +124,7 @@
         placeholder="Ex. Cool movie"
       />
     </mat-form-field>
-    <mat-form-field>
-      <mat-label>VideoSong</mat-label>
-      <input
-        matInput
-        formControlName="videosong"
-        placeholder="Ex. Cool movie"
-      />
-      <mat-error *ngIf="videosong?.touched && videosong?.hasError('required')">
-        Why not fill this field 😉?
-      </mat-error>
-      <mat-error *ngIf="videosong?.touched && videosong?.hasError('minlength')">
-        Please provide valid url 😁
-      </mat-error>
-      <mat-error *ngIf="videosong?.touched && videosong?.hasError('pattern')">
-        Please provide valid url 😁
-      </mat-error>
-    </mat-form-field>
+
     <!-- <button (click)="updatedMovie()">Update movie</button> -->
     <button
       [disabled]="musicForm.invalid"

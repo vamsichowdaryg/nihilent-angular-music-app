@@ -1,10 +1,12 @@
  .movie-container {
-  width: 100%;
+ min-width: 100vw;
   background-color: red;
   border-radius: 16px;
   overflow: hidden;
 } 
-
+.card{
+    background: transparent;
+}
 .movie-detail-container p {
     margin: 0;
   }
@@ -34,19 +36,21 @@
     color: #faf9f9;
   }
   .full-container{
-    width: 100%;
-    height: 100vh;
+    // width: 100%;
+    // height: 100vh;
+    max-width: 800px;
+    margin: 0 auto;
   }
   .movie-details {
-    padding: 1rem;
-    padding-left: 1rem;
+    // padding: 1rem;
+    // padding-left: 1rem;
     width: 90%;
     text-align: justify;
   }
   
-  .movie-detail-container {
-    max-width: 50rem;
-  }
+//   .movie-detail-container {
+//     // max-width: 50rem;
+//   }
   
   .movie-language-container,
   .movie-genre-container,
@@ -66,7 +70,8 @@
     flex-direction: column;
     color: white;
     gap: 1rem;
-    margin-left: 22.5rem;
+    width: 100%;
+    // margin-left: 22.5rem;
   }
   
   .movie-name {
@@ -89,9 +94,14 @@
     object-fit: cover; 
   }
   .videosong{
-    height: auto;
-    height: 50%;
-    width: 50%;
+    // height: auto;
+    height: 350px;
+    width: 100%;
     margin-top: 1rem;
-    margin-left: 22.5rem;
+    // margin-left: 22.5rem;
   }
+.youtubesong{
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
