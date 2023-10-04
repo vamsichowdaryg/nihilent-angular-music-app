@@ -35,7 +35,7 @@ export class MusicPageComponent {
   @Output() rmmovieidx = new EventEmitter<number>();
   likeSubject = new Subject<number>()
   dislikeSubject = new Subject<number>()
-  movielist: Object | undefined;
+  musiclist: Object | undefined;
   constructor(private http: HttpClient, private dialog: MatDialog, private router: Router, private musicService: MusicService, private fb: FormBuilder) {
     this.likeSubject.pipe(debounceTime(1000), switchMap((count) => {
       this.music = { ...this.music, like: count };

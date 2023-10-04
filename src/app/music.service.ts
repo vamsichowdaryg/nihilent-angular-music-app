@@ -17,13 +17,6 @@ export class MusicService {
       );
     }
   }
-  // updateMusic(updatedMusic: Music) {
-  //   console.log(this.musiclist);
-  //   const id = updatedMusic.id;
-  //   const index = this.musiclist.findIndex((mv) => mv.id === id);
-  //   this.musiclist.splice(index, 1, updatedMusic);
-  //   // this.movieList.push(newMovie);
-  // }
   constructor(private http: HttpClient) { }
 
   getMusicById(id: string) {

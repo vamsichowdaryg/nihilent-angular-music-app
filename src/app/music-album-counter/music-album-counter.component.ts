@@ -18,8 +18,8 @@ export class MusicAlbumCounterComponent {
   searchTerm!: string;
 
   searchForm: FormGroup;
-  sortType: string = 'default';
-  order: string = '';
+  sortType: string = 'songname';
+  order: string = 'asc';
   previousSearches: string[] = [];
   get search() {
     return this.searchForm.get('search');
@@ -35,6 +35,7 @@ export class MusicAlbumCounterComponent {
       switchMap((name) => this.musicService.searchMusicList(name || '')))
       .subscribe((mulist) => {
         this.musiclist = mulist;
+        this.applySorting();
       })
     this.loadMusicData();
   }
@@ -43,33 +44,54 @@ export class MusicAlbumCounterComponent {
       .getMusicListFromMockAPI()
       .subscribe((muList: Music[]) => {
         this.musiclist = muList;
+        this.applySorting()
       });
-  }
-  onNewItems(newItems: Music[]): void {
-    // if (newItems.length === 0) {
-    //   this.musiclist = []; // Reset the list if an empty array is received
-    // } else {
-    this.musiclist = [...this.musiclist, ...newItems];
-    // }
-  }
-  onSortChange(event: MatSelectChange): void {
-    this.sortType = event.value;
   }
   show = true;
   toggle() {
     this.show = !this.show
   }
 
+
+  onSortChange(event: MatSelectChange): void {
+    this.sortType = event.value;
+    this.applySorting(); // Apply sorting when sort type changes
+  }
+
   onOrderChange(event: MatSelectChange): void {
     this.order = event.value;
+    this.applySorting(); // Apply sorting when order changes
+  }
+
+  applySorting() {
+    if (this.sortType && this.order) {
+      // Implement sorting logic based on this.sortType and this.order
+      this.musiclist.sort((a: Music, b: Music) => {
+        const sortOrder = this.order === 'asc' ? 1 : -1;
+        if (this.sortType === 'songname') {
+          return a.songname.localeCompare(b.songname) * sortOrder;
+        } else if (this.sortType === 'songrating') {
+          return (a.songrating - b.songrating) * sortOrder;
+        } else if (this.sortType === 'releasedYear') {
+          // You might need to parse dates and compare them appropriately
+          // Example:
+          // return new Date(a.uploadedDate).getTime() - new Date(b.uploadedDate).getTime() * sortOrder;
+        }
+        return 0;
+      });
+    }
   }
   onLoadingChange(isLoading: boolean): void {
     this.isLoading = isLoading;
   }
-  ngOnDestroy() {
-    // this.getMovielist.unSubscribe();
+  onNewItems(newItems: Music[]): void {
+    if (newItems.length === 0) {
+      this.musiclist = []; // Reset the list if an empty array is received
+    } else {
+      this.musiclist = [...this.musiclist, ...newItems];
+      this.applySorting()
+    }
   }
-
   removemusic(idx: number) {
     console.log("del")
 
