@@ -7,33 +7,23 @@
       type="search"
       matInput
       placeholder="Ex. avara"
-      list="search-list"
+      [matAutocomplete]="auto"
     />
-    <datalist id="search-list" *ngIf="searchForm.get('search')?.value !== ''">
-      <option
-        class="option"
-        *ngFor="let music of musiclist"
-        [value]="music.songname"
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option
+        *ngFor="let option of filteredOptions | async"
+        [value]="option"
       >
-        {{ music.songname }}
-      </option>
-    </datalist>
-    <!-- <button
-      matSuffix
-      mat-icon-button
-      
-      "
-      (click)="clearSearch()"
-    >
-      <mat-icon>close</mat-icon>
-    </button> -->
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Sort By</mat-label>
     <mat-select (selectionChange)="onSortChange($event)">
-      <mat-option value="name">Name</mat-option>
+      <mat-option value="songname">Name</mat-option>
       <mat-option value="songrating">Rating</mat-option>
-      <mat-option value="releaseYear">Release Year</mat-option>
+      <mat-option value="releaseYear">ReleaseYear</mat-option>
     </mat-select>
   </mat-form-field>
 

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Music } from '../app.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { catchError, Subscription, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { catchError, Subscription, debounceTime, distinctUntilChanged, switchMap, Observable, startWith, map } from 'rxjs';
 import { MusicService } from '../music.service';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectChange } from '@angular/material/select';
@@ -21,6 +22,7 @@ export class MusicAlbumCounterComponent {
   sortType: string = 'songname';
   order: string = 'asc';
   previousSearches: string[] = [];
+  filteredOptions!: Observable<string[]>
   get search() {
     return this.searchForm.get('search');
   }
@@ -30,14 +32,18 @@ export class MusicAlbumCounterComponent {
     });
   }
   ngOnInit() {
-    this.searchForm.get('search')?.valueChanges.pipe(debounceTime(1000),
+    this.filteredOptions = this.searchForm.get('search')!.valueChanges.pipe(
+      startWith(''),
+      debounceTime(1000), // Reduced debounce time for a more responsive search
       distinctUntilChanged(),
-      switchMap((name) => this.musicService.searchMusicList(name || '')))
-      .subscribe((mulist) => {
-        this.musiclist = mulist;
+      switchMap((name) => {
+        this.searchTerm = name;
         this.applySorting();
-      })
-    this.loadMusicData();
+        return this.musicService.searchMusicList(name || '');
+      }),
+      map((mulist) => mulist.map((mu) => mu.songname))
+    );
+    // this.loadMusicData()
   }
   loadMusicData() {
     this.getMusiclist = this.musicService
@@ -55,17 +61,20 @@ export class MusicAlbumCounterComponent {
 
   onSortChange(event: MatSelectChange): void {
     this.sortType = event.value;
-    this.applySorting(); // Apply sorting when sort type changes
+    this.applySorting();
   }
 
   onOrderChange(event: MatSelectChange): void {
     this.order = event.value;
-    this.applySorting(); // Apply sorting when order changes
+    this.applySorting();
   }
 
   applySorting() {
+    this.musiclist = this.musiclist.filter(music => {
+      const matchesSearch = !this.searchTerm || music.songname.toLowerCase().includes(this.searchTerm.toLowerCase());
+      return matchesSearch;
+    });
     if (this.sortType && this.order) {
-      // Implement sorting logic based on this.sortType and this.order
       this.musiclist.sort((a: Music, b: Music) => {
         const sortOrder = this.order === 'asc' ? 1 : -1;
         if (this.sortType === 'songname') {
@@ -73,9 +82,6 @@ export class MusicAlbumCounterComponent {
         } else if (this.sortType === 'songrating') {
           return (a.songrating - b.songrating) * sortOrder;
         } else if (this.sortType === 'releasedYear') {
-          // You might need to parse dates and compare them appropriately
-          // Example:
-          // return new Date(a.uploadedDate).getTime() - new Date(b.uploadedDate).getTime() * sortOrder;
         }
         return 0;
       });
@@ -84,38 +90,25 @@ export class MusicAlbumCounterComponent {
   onLoadingChange(isLoading: boolean): void {
     this.isLoading = isLoading;
   }
+
   onNewItems(newItems: Music[]): void {
-    if (newItems.length === 0) {
-      this.musiclist = []; // Reset the list if an empty array is received
-    } else {
-      this.musiclist = [...this.musiclist, ...newItems];
-      this.applySorting()
-    }
+    const existingsongs = new Set(this.musiclist.map((mu) => mu.id))
+    // if (newItems.length === 0) {
+    //   return;
+    // }
+    const uniqueNewItems = newItems.filter(
+      (newItem) => !existingsongs.has(newItem.id)
+    );
+    // const uniqueNewItems = newItems.filter(newItem => !this.musiclist.some(existingItem => existingItem.id === newItem.id));
+
+    this.musiclist = [...this.musiclist, ...uniqueNewItems];
+    this.applySorting();
   }
+
   removemusic(idx: number) {
     console.log("del")
 
     this.musiclist.splice(idx, 1);
   }
-  // clearSearch() {
-  //   const searchValue = this.searchForm.get('search')?.value;
-  //   if (searchValue) {
-  //     this.previousSearches.push(searchValue);
-  //   }
-  //   this.searchForm.get('search')?.setValue('')
-  // }
-  // removemusic(music: Music, idx: number) {
-  //   const deletedMusic = this.musiclist[idx];
-  //   this.musiclist.splice(idx, 1);
 
-  //   this.musicService.deleteMusicById(music.id).subscribe(
-  //     () => {
-  //       console.log('Song deleted successfully');
-  //     },
-  //     (error) => {
-  //       this.musiclist.splice(idx, 0, deletedMusic);
-  //       console.error('Delete failed, restoring song', error);
-  //     }
-  //   );
-  // }
 }
