@@ -93,9 +93,9 @@ export class MusicAlbumCounterComponent {
 
   onNewItems(newItems: Music[]): void {
     const existingsongs = new Set(this.musiclist.map((mu) => mu.id))
-    // if (newItems.length === 0) {
-    //   return;
-    // }
+    if (newItems.length === 0) {
+      return;
+    }
     const uniqueNewItems = newItems.filter(
       (newItem) => !existingsongs.has(newItem.id)
     );
