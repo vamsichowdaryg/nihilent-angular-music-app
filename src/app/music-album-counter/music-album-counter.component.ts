@@ -6,6 +6,7 @@ import { catchError, Subscription, debounceTime, distinctUntilChanged, switchMap
 import { MusicService } from '../music.service';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectChange } from '@angular/material/select';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-music-album-counter',
@@ -26,10 +27,13 @@ export class MusicAlbumCounterComponent {
   get search() {
     return this.searchForm.get('search');
   }
-  constructor(private musicService: MusicService, private fb: FormBuilder) {
+  constructor(private musicService: MusicService, private fb: FormBuilder, public themeservice: ThemeService) {
     this.searchForm = this.fb.group({
       search: '',
     });
+  }
+  toggleTheme() {
+    this.themeservice.toggleTheme();
   }
   ngOnInit() {
     this.filteredOptions = this.searchForm.get('search')!.valueChanges.pipe(

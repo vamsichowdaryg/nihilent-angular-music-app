@@ -63,7 +63,7 @@ export class MusicDetailsComponent {
 
   getLabelGenres(music: any) {
     return music.genres?.map(
-      (lang: string) => this.genres.find((data) => data.value === lang)?.label
+      (gen: string) => this.genres.find((data) => data.value === gen)?.label
     );
   }
   show = true;
