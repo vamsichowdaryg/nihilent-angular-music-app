@@ -58,7 +58,6 @@ export class MusicAlbumCounterComponent {
     this.show = !this.show
   }
 
-
   onSortChange(event: MatSelectChange): void {
     this.sortType = event.value;
     this.applySorting();
